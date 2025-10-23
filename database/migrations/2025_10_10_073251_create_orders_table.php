@@ -1,4 +1,4 @@
-<<?php
+<?php
 
 use App\Enums\orderstatusEnum;
 use Illuminate\Database\Migrations\Migration;
@@ -18,9 +18,9 @@ return new class extends Migration
                 ->cascadeOnDelete();
             $table->foreignId('service_id')->constrained('services')
                 ->cascadeOnDelete();
-
+            $table->integer("total");
             // Исправлено использование enum
-            $table->tinyInteger('status')->default(OrderStatusEnum::new->value);
+            $table->tinyInteger('status')->default(orderStatusEnum::new->value);
 
             $table->timestamps();
         });
@@ -33,7 +33,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        // Исправлено использование Schema
         Schema::dropIfExists('orders');
     }
 };

@@ -15,8 +15,9 @@ return new class extends Migration
 
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('order_id')->
-            constrained('orders');
+            $table->foreignId('order_id')
+                ->constrained('orders')
+                ->cascadeOnDelete();
             $table->tinyInteger('status')->default(paymentstatusEnum::Active->value);
             $table->tinyInteger('method');
             $table->timestamps();
@@ -29,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('payments');
     }
 };
