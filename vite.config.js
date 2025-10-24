@@ -13,6 +13,11 @@ export default defineConfig({
     server: {
         host: '0.0.0.0',
         port: 5137,
-        open: false
-    }
+        hmr: {
+            host: 'localhost',
+        },
+        watch: {
+            usePolling: true,
+        },
+    },
 });
