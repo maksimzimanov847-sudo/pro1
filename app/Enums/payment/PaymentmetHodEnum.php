@@ -2,7 +2,7 @@
 
 namespace App\Enums\payment;
 
-enum paymentmethodEnum:int
+enum paymentmetHodEnum:int
 {
 case method = 1;
 case mentmethod2 = 2;

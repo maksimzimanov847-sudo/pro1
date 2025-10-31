@@ -2,7 +2,7 @@
 
 namespace App\Enums;
 
-enum orderstatusEnum:int
+enum orderStatusEnum:int
 {
     case new = 1;
     case processing = 2;

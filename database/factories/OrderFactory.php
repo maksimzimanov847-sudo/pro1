@@ -2,8 +2,8 @@
 
 namespace Database\Factories;
 
-use App\Enums\orderstatusEnum;
-use App\Enums\servicestypeEnum;
+use App\Enums\OrderStatusEnum;
+use App\Enums\ServicesTypeEnum;
 use http\Client\Curl\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -23,7 +23,7 @@ class OrderFactory extends Factory
 
             'user_id'=> \App\Models\User::factory(),
             'service_id'=> \App\Models\Service::factory(),
-            'status'=>fake()->randomElement(orderstatusEnum::cases()),
+            'status'=>fake()->randomElement(orderStatusEnum::cases()),
             "total"=>fake()->numberBetween(10000, 1000000),
 
         ];

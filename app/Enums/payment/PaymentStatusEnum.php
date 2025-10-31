@@ -2,7 +2,7 @@
 
 namespace App\Enums\payment;
 
-enum paymentstatusEnum:int
+enum paymentStatusEnum:int
 {
     case Active = 1;
     case paid = 2;

@@ -10,7 +10,7 @@
 <body>
 <div class="container">
     <div class="header">
-        <a href="#" class="btn btn-primary">create new</a>
+        <a href="#" class="btn btn-primary">Добавить</a>
     </div>
 </div>
 
@@ -18,12 +18,12 @@
     <table class="table">
         <thead>
         <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Surname</th>
-            <th>Patronymic</th>
-            <th>Role</th>
-            <th>Actions</th>
+            <th>номер</th>
+            <th>Имя</th>
+            <th>Фамилия</th>
+            <th>отчество</th>
+            <th>Роль </th>
+            <th>Действия</th>
         </tr>
         </thead>
         <tbody>
@@ -36,16 +36,16 @@
                 <td>{{ $user->role->name }}</td>
                 <td class="actions">
                     <!-- Кнопка просмотра -->
-                    <a href="#" class="btn btn-info me-2">Show</a>
+                    <a href="{{route("users.show",$user)}}" class="btn btn-info me-2">Показать</a>
 
                     <!-- Кнопка редактирования -->
-                    <a href="#" class="btn btn-warning me-2">Edit</a>
+                    <a href="#" class="btn btn-warning me-2">Редактировать</a>
 
                     <!-- Форма для удаления -->
-                    <form action="#" method="POST">
+                    <form action="{{route("users.destroy",$user)}}" method="POST">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger">Delete</button>
+                        <button type="submit" class="btn btn-danger">Удалить</button>
                     </form>
                 </td>
             </tr>

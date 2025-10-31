@@ -5,8 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use App\Enums\payment\paymentstatusEnum; // Убедитесь, что путь к enum правильный
-use App\Enums\payment\paymentmethodEnum;  // Убедитесь, что путь к enum правильный
+use App\Enums\payment\paymentStatusEnum; // Убедитесь, что путь к enum правильный
+use App\Enums\payment\paymentmetHodEnum;  // Убедитесь, что путь к enum правильный
 
 class Payment extends Model
 {
@@ -24,8 +24,8 @@ class Payment extends Model
 
     // Укажите приведение типов
     protected $casts = [
-        'status' => paymentstatusEnum::class,
-        'method' => \App\Enums\payment\paymentmethodEnum::class
+        'status' => paymentStatusEnum::class,
+        'method' => \App\Enums\payment\paymentmetHodEnum::class
     ];
 
     // Отношение "принадлежит" к модели Order

@@ -1,6 +1,6 @@
 <?php
 
-use App\Enums\servicestypeEnum;
+use App\Enums\ServicesTypeEnum;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('name',150);
             $table->text('description',);
             $table->integer('price');
-            $table->tinyInteger('type')->default(servicestypeEnum::test->value);;
+            $table->tinyInteger('type')->default(ServicesTypeEnum::test->value);;
             $table->timestamps();
         });
     }
