@@ -10,7 +10,8 @@ services:
       POSTGRES_PASSWORD: ${DB_PASSWORD}
       POSTGRES_DB: ${DB_DATABASE}
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+        - ./postgres_data:/var/lib/postgresql/data
+
   nginx:
     container_name: 'nginx'
     image: nginx:1.25.5-alpine
