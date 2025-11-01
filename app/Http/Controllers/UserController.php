@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\UserRoleEnum;
+use App\Http\Requests\CreateUserRequest;
 use App\Models\User;
+use Couchbase\Role;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -11,7 +15,7 @@ class UserController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(User $user): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+    public function index(User $user): View
     {
         $users = User::all();
         return view('users.index', compact('users'));
@@ -20,17 +24,21 @@ class UserController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(): View
+
     {
-        //
+        $roles = UserRoleEnum::options();
+        return view('users.create', compact('roles'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(CreateUserRequest $request): RedirectResponse
     {
-        //
+        $user = User::created($request->validated());
+
+       return redirect()->route('users.index');
     }
 
     /**

@@ -2,7 +2,7 @@
 
 namespace App\Enums;
 
-enum UserRoleEnum:int
+enum UserRoleEnum: int
 {
     case Admin = 1;
     case User = 2;
@@ -14,6 +14,8 @@ enum UserRoleEnum:int
             self::User => 'Пользователь',
         };
     }
+
+
     public static function options(): array
     {
         return collect(self::cases())
@@ -22,8 +24,4 @@ enum UserRoleEnum:int
             })
             ->toArray();
     }
-
 }
-
-
-

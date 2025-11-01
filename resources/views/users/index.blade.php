@@ -10,7 +10,7 @@
 <body>
 <div class="container">
     <div class="header">
-        <a href="#" class="btn btn-primary">Добавить</a>
+        <a href="{{route("users.create")}}" class="btn btn-primary">Добавить</a>
     </div>
 </div>
 
