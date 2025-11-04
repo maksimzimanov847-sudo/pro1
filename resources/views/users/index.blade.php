@@ -39,7 +39,7 @@
                     <a href="{{route("users.show",$user)}}" class="btn btn-info me-2">Показать</a>
 
                     <!-- Кнопка редактирования -->
-                    <a href="#" class="btn btn-warning me-2">Редактировать</a>
+                    <a href=""{{route("users.edit",$user)}}" class="btn btn-warning me-2">Редактировать</a>
 
                     <!-- Форма для удаления -->
                     <form action="{{route("users.destroy",$user)}}" method="POST">

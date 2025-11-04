@@ -15,7 +15,7 @@ class UserController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(User $user): View
+    public function index(): View
     {
         $users = User::all();
         return view('users.index', compact('users'));
@@ -36,7 +36,7 @@ class UserController extends Controller
      */
     public function store(CreateUserRequest $request): RedirectResponse
     {
-        $user = User::created($request->validated());
+        $user = User::create($request->validated());
 
        return redirect()->route('users.index');
     }
@@ -52,18 +52,22 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit()
+    public function edit(User $user): View
     {
-        //
+        $roles = UserRoleEnum::options();
+        return view('users.edit', compact('user', 'roles'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request)
+    public function update(UserUpdateRequest $request, User $user): RedirectResponse
     {
-        //
+        return redirect()
+            ->route('users.index')
+            ->with('success', 'Пользователь успешно обновлён');
     }
+
 
     /**
      * Remove the specified resource from storage.

@@ -2,7 +2,6 @@
     $user = $user ?? null;
 @endphp
 
-
 <div>
     <div>
         <label>Выберите роль:</label>
@@ -49,8 +48,18 @@
                required>
     </div>
 
+    <!-- Поле для пароля -->
+    <div>
+        <label for="password">Пароль</label>
+        <input type="password"
+               id="password"
+               name="password"
+            {{ $user ? '' : 'required' }}>
+    </div>
+
     <!-- Кнопка сохранения данных -->
     <div>
         <button type="submit" class="btn btn-primary">Сохранить</button>
     </div>
 </div>
+
