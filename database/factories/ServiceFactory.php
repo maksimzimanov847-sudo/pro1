@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Enums\ServicesTypeEnum;
+use App\Enums\ServiceTypeEnum;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -22,7 +23,7 @@ class ServiceFactory extends Factory
             'name'=>fake()->words(3, true),
             'description'=>fake()->paragraph(),
             'price'=>fake()->numberBetween(100, 10000),
-            'type'=>fake()->randomElement(ServicesTypeEnum::cases()),
+            'type'=>fake()->randomElement(ServiceTypeEnum::cases()),
         ];
     }
 }

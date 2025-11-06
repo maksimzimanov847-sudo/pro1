@@ -2,7 +2,7 @@
 
 namespace App\Enums;
 
-enum ServicesTypeEnum:int
+enum ServiceTypeEnum:int
 {
     case Test = 1;
     case Test2 = 2;

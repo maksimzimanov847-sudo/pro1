@@ -12,10 +12,7 @@ class CreateServiceRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'role'=>[
-                Rule::enum(ServiceTypeEnum::class),
-            ],
-            'title' => [
+            'name' => [
                 'required',
                 'string',
                 'max:150'
@@ -23,12 +20,10 @@ class CreateServiceRequest extends FormRequest
             'description' => [
                 'required',
                 'string'
-
             ],
             'price' => [
                 'required',
                 'integer'
-
             ],
         ];
     }

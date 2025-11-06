@@ -4,11 +4,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Enums\ServicesTypeEnum;
+
+use App\Enums\ServiceTypeEnum;
 use App\Http\Requests\CreateServiceRequest;
 use App\Http\Requests\CreateUserRequest;
 use App\Http\Requests\UpdateServiceRequest;
-use App\Http\Requests\UpdateUserRequest;
 use App\Models\Service;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -31,7 +31,7 @@ class ServiceController extends Controller
      */
     public function create(): View
     {
-        $roles = ServicesTypeEnum::options();
+        $roles = ServiceTypeEnum::options();
 
         return view('services.create', compact('roles'));
     }
@@ -61,7 +61,7 @@ class ServiceController extends Controller
      */
     public function edit(Service  $service): View
     {
-        $roles = ServicesTypeEnum::options();
+        $roles = ServiceTypeEnum::options();
 
         return view('services.edit', compact('service', 'roles'));
     }

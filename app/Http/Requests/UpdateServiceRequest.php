@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests;
 
-use App\Enums\ServicesTypeEnum;
+use App\Enums\ServiceTypeEnum;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
@@ -15,7 +15,7 @@ class UpdateServiceRequest extends FormRequest
             'role' =>[
                 Rule::enum(ServiceTypeEnum::class),
             ],
-            'title' => [
+            'name' => [
                 'required',
                 'string',
                 'max:150'

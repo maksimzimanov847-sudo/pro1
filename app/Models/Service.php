@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\ServiceTypeEnum;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -24,7 +25,7 @@ class Service extends Model
 
     // Укажите приведение типов
     protected $casts = [
-        'type' => ServicesTypeEnum::class
+        'type' => ServiceTypeEnum::class
     ];
 
     // Отношение "один ко многим" с моделью Order

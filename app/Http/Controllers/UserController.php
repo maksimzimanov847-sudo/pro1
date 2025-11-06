@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Enums\UserRoleEnum;
 use App\Http\Requests\CreateUserRequest;
+use App\Http\Requests\UserUpdateRequest;
 use App\Models\User;
 use Couchbase\Role;
 use Illuminate\Http\RedirectResponse;
@@ -63,10 +64,23 @@ class UserController extends Controller
      */
     public function update(UserUpdateRequest $request, User $user): RedirectResponse
     {
+        // Извлекаем валидированные данные из запроса
+        $validatedData = $request->validated();
+
+        // Если есть пароль — хэшируем его перед сохранением
+        if (isset($validatedData['password'])) {
+            $validatedData['password'] = Hash::make($validatedData['password']);
+        }
+
+        // Обновляем модель пользователя
+        $user->update($validatedData);
+
+        // Возвращаем редирект с сообщением об успехе
         return redirect()
             ->route('users.index')
             ->with('success', 'Пользователь успешно обновлён');
     }
+
 
 
     /**

@@ -16,8 +16,8 @@
         </select>
     </div>
     <div>
-        <label for="title">Название услуги</label>
-        <input value="{{ old('title', $service?->title) }}" type="text" id="title" name="title" required>
+        <label for="name">Название услуги</label>
+        <input value="{{ old('name', $service?->name) }}" type="text" id="name" name="name" required>
     </div>
 
     <div>
@@ -35,8 +35,9 @@
         <input value="{{ old('type', $service?->type) }}" type="text" id="type" name="type" required>
     </div>
 
+    <!-- Кнопка сохранения данных -->
     <div>
-        <button type="submit">Сохранить данные</button>
+        <button  type="submit" class="btn btn-primary">Сохранить #a</button>
     </div>
 </div>
 

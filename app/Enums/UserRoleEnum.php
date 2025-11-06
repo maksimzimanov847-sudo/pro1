@@ -7,7 +7,7 @@ enum UserRoleEnum: int
     case Admin = 1;
     case User = 2;
 
-    public function name(): string
+    public function lebel(): string
     {
         return match ($this) {
             self::Admin => 'Администратор',
@@ -20,7 +20,7 @@ enum UserRoleEnum: int
     {
         return collect(self::cases())
             ->mapWithKeys(function ($value) {
-                return [$value->value => $value->name()];
+                return [$value->value => $value->lebel()];
             })
             ->toArray();
     }
