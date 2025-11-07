@@ -67,18 +67,13 @@ class UserController extends Controller
         // Извлекаем валидированные данные из запроса
         $validatedData = $request->validated();
 
-        // Если есть пароль — хэшируем его перед сохранением
-        if (isset($validatedData['password'])) {
-            $validatedData['password'] = Hash::make($validatedData['password']);
-        }
 
         // Обновляем модель пользователя
         $user->update($validatedData);
 
         // Возвращаем редирект с сообщением об успехе
         return redirect()
-            ->route('users.index')
-            ->with('success', 'Пользователь успешно обновлён');
+            ->route('users.index');
     }
 
 
