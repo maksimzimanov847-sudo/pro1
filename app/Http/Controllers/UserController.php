@@ -62,19 +62,34 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      */
+    /**
+     * Update the specified resource in storage.
+     */
     public function update(UserUpdateRequest $request, User $user): RedirectResponse
     {
-        // Извлекаем валидированные данные из запроса
         $validatedData = $request->validated();
 
+        // Обработка пароля
+        if ($request->filled('password')) {
+            $validatedData['password'] = bcrypt($request->password);
+        } else {
+            unset($validatedData['password']);
+        }
 
-        // Обновляем модель пользователя
-        $user->update($validatedData);
+        // Проверка роли
+        if (isset($validatedData['role']) && !UserRoleEnum::isValid($validatedData['role'])) {
+            return redirect()->back()->withErrors(['role' => 'Неверная роль'])->withInput();
+        }
 
-        // Возвращаем редирект с сообщением об успехе
-        return redirect()
-            ->route('users.index');
+        try {
+            $user->update($validatedData);
+        } catch (\Exception $e) {
+            return redirect()->back()->withErrors(['error' => 'Произошла ошибка'])->withInput();
+        }
+
+        return redirect()->route('users.index');
     }
+
 
 
 
