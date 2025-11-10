@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="header">
-            <a href="{{ route('services.index') }}" class="btn btn-primary">Создать нового</a>
+            <a href="{{ route('services.index') }}" class="btn btn-primary">Назад</a>
         </div>
     </div>
     <div class="table-container">

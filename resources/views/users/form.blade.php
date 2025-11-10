@@ -1,13 +1,13 @@
 @extends('layouts.app')
-@section('title','CD')
+@section('title','Форма пользователя')
 
 @section('content')
     @php
-        // Установка значения по умолчанию для пользователя
+
         $user = $user ?? null;
     @endphp
 
-        <!-- Форма для редактирования/создания пользователя -->
+
     <form method="POST" action="{{ route('users.store') }}">
         @csrf
 
@@ -22,7 +22,7 @@
             </select>
         </div>
 
-        <!-- Поля для ввода персональных данных -->
+
         <div class="form-group">
             <label for="surname">Фамилия</label>
             <input value="{{ old('surname', $user?->surname) }}"
@@ -63,7 +63,7 @@
                    required>
         </div>
 
-        <!-- Поле для пароля с условной валидацией -->
+
         <div class="form-group">
             <label for="password">Пароль</label>
             <input type="password"
@@ -73,7 +73,7 @@
                 {{ $user ? '' : 'required' }}>
         </div>
 
-        <!-- Кнопка отправки формы -->
+
         <div class="form-group">
             <button type="submit" class="btn btn-primary">
                 Сохранить

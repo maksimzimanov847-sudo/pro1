@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Список услуг')
+@section('title', 'Создание услуги')
 @section('content')
     <div>
         <a href="{{ route('services.index') }}">назад</a>
