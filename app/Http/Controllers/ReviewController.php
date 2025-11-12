@@ -7,22 +7,25 @@ use Illuminate\Http\Request;
 
 class ReviewController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
-     $reviews = Review::all();
-     return view('reviews.index', compact('reviews'));
+        $reviews = Review::with(['user', 'service'])->get();
+        return view('reviews.index', compact('reviews'));
     }
+
 
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-        //
+        $users = User::all(); // Получаем все записи из модели User (таблица users)
+        $services = Service::all(); // Получаем все записи из модели Service (таблица services)
+
+        return view('reviews.create', compact('users', 'services')); // Передаём данные в представление
     }
+
 
     /**
      * Store a newly created resource in storage.
@@ -35,18 +38,24 @@ class ReviewController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Review $review)
     {
-        //
+        $review->load(['user', 'service']);
+        return view('reviews.show', compact('review'));
     }
+
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Review $review)
     {
-        //
+        $users = User_id::all();
+        $services = Service::all();
+
+        return view('reviews.edit', compact('review', 'users', 'services'));
     }
+
 
     /**
      * Update the specified resource in storage.
@@ -59,8 +68,9 @@ class ReviewController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Review $review)
     {
-        //
+        $review->delete();
+        return redirect()->route('reviews.index');
     }
 }
