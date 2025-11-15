@@ -5,7 +5,6 @@
         <div class="show-header">
             <h1>Отзыв #{{ $review->id }}</h1>
             <div>
-                <a href="{{ route('users.edit', $review) }}" class="btn btn-w">Редактировать</a>
                 <a href="{{ route('users.index') }}" class="btn btn-back">Назад</a>
             </div>
         </div>

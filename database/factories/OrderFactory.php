@@ -23,7 +23,7 @@ class OrderFactory extends Factory
 
             'user_id'=> \App\Models\User::factory(),
             'service_id'=> \App\Models\Service::factory(),
-            'status'=>fake()->randomElement(orderStatusEnum::cases()),
+            'status'=>fake()->randomElement(OrderStatusEnum::cases()),
             "total"=>fake()->numberBetween(10000, 1000000),
 
         ];

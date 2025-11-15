@@ -3,7 +3,7 @@
 namespace App\Models;
 
 
-use App\Enums\orderStatusEnum;
+use App\Enums\OrderStatusEnum;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -29,7 +29,7 @@ class Order extends Model
         'user_id',
         'service_id',
         'status',
-        'total_price'
+        'total'
     ];
 
     /**
@@ -38,7 +38,7 @@ class Order extends Model
      * @var array
      */
     protected $casts = [
-        'status' => orderStatusEnum::class
+        'status' => OrderStatusEnum::class
     ];
 
     /**

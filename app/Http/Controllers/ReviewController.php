@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateReviewRequest;
+use App\Http\Requests\UpdateReviewRequest;
 use App\Models\Review;
-use Illuminate\Http\Request;
+use App\Models\Service;
+use App\Models\User;
+use Illuminate\Http\RedirectResponse;
 
 class ReviewController extends Controller
 {
@@ -20,19 +24,20 @@ class ReviewController extends Controller
      */
     public function create()
     {
-        $users = User::all(); // Получаем все записи из модели User (таблица users)
-        $services = Service::all(); // Получаем все записи из модели Service (таблица services)
+        $users = User::all();
+        $services = Service::all();
 
-        return view('reviews.create', compact('users', 'services')); // Передаём данные в представление
+        return view('reviews.create', compact('users', 'services'));
     }
 
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(CreateReviewRequest $request): RedirectResponse
     {
-        //
+        Review::create($request->validated());
+        return redirect()->route('reviews.index');
     }
 
     /**
@@ -50,7 +55,7 @@ class ReviewController extends Controller
      */
     public function edit(Review $review)
     {
-        $users = User_id::all();
+        $users = User::all();
         $services = Service::all();
 
         return view('reviews.edit', compact('review', 'users', 'services'));
@@ -58,11 +63,12 @@ class ReviewController extends Controller
 
 
     /**
-     * Update the specified resource in storage.
+
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateReviewRequest $request,Review $review): RedirectResponse
     {
-        //
+        $review->update($request->validated());
+        return redirect()->route('reviews.index');
     }
 
     /**

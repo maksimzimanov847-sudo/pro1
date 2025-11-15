@@ -3,6 +3,7 @@
 
 @section('content')
     <div class="table-container">
+        <a href="{{ route('reviews.create') }}" class="btn btn-primary">Создать новую услугу</a>
         <table class="table">
             <thead>
             <tr>
@@ -39,7 +40,7 @@
                 </tr>
             @empty
                 <tr>
-                    <td colspan="6" class="no-data">Нет данных</td> <!-- Изменено на 6, потому что теперь колонок 6 -->
+                    <td colspan="6" class="no-data">Нет данных</td>
                 </tr>
             @endforelse
             </tbody>

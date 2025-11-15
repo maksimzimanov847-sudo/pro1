@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Enums\UserRoleEnum;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -23,50 +24,47 @@ class User extends Authenticatable
         'password',
         'role',
         'surname',
-        'patronymic'
+        'patronymic',
     ];
 
     /**
      * The attributes that should be hidden for serialization.
      *
-     * @var array
+     * @var list<string>
      */
     protected $hidden = [
         'password',
-        'remember_token'
+        'remember_token',
     ];
 
     /**
      * Get the attributes that should be cast.
      *
-     * @return array
+     * @return array<string, string>
      */
     protected function casts(): array
     {
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
-            'role' => UserRoleEnum::class
+            'role' => UserRoleEnum::class,
         ];
     }
 
-    /**
-     * Relationship with orders
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function orders(): \Illuminate\Database\Eloquent\Relations\HasMany
+    public function orders(): HasMany
     {
         return $this->hasMany(Order::class);
     }
 
-    /**
-     * Relationship with reviews
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function reviews(): \Illuminate\Database\Eloquent\Relations\HasMany
+    public function reviews(): HasMany
     {
         return $this->hasMany(Review::class);
     }
+    public function userFullName(): string
+    {
+        return $this->name. ' ' . $this-> surname;
+    }
+
+
+
 }
