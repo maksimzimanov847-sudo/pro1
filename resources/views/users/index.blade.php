@@ -27,7 +27,7 @@
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->surname }}</td>
                     <td>{{ $user->patronymic }}</td>
-                    <td>{{ $user->role->name }}</td>
+                    <td>{{ $user->role->label() }}</td>
                     <td class="actions">
                         <!-- Кнопка просмотра -->
                         <a href="{{route("users.show",$user)}}" class="btn btn-info me-2">Показать</a>

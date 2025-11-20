@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Пользователи')
+@section('title', 'Показ заказов')
 
 @section('content')
     <div class="show-container">

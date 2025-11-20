@@ -28,7 +28,7 @@
                         <a href="{{ route('reviews.show', $review) }}" class="btn btn-info me-2">Показать</a>
 
                         <!-- Кнопка редактирования -->
-                        <a href="{{ route('reviews.edit', $review) }}" class="btn btn-warning me-2">Редактировать</a>
+                        <a href="{{ route('reviews.edit',$review) }}" class="btn btn-warning me-2">Редактировать</a>
 
                         <!-- Форма для удаления -->
                         <form action="{{ route('reviews.destroy', $review) }}" method="POST" style="display:inline;">

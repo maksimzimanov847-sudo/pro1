@@ -7,7 +7,7 @@ enum UserRoleEnum: int
     case Admin = 1;
     case User = 2;
 
-    public function lebel(): string
+    public function label(): string
     {
         return match ($this) {
             self::Admin => 'Администратор',

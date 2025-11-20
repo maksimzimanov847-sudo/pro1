@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
-@section('title', 'Пользователи')
+@section('title', 'заказы')
 
 @section('content')
     <div class="container">
         <div class="header">
-            <a href="{{ route('orders.create') }}" class="btn btn-primary">создать новый</a>
+            <a href="{{ route('orders.create') }}" class="btn btn-primary">создать новый Заказ</a>
         </div>
     </div>
 

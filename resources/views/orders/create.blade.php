@@ -1,7 +1,7 @@
 
 @extends('layouts.app')
 
-@section('title', 'Пользователи')
+@section('title', 'Создание нового заказа')
 
 @section('content')
 

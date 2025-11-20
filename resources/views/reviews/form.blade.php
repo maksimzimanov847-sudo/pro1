@@ -100,8 +100,11 @@
 
 
     <div>
-        <button type="submit" >
-            Сохранить изменения
-        </button>
-    </div>
+        <!-- Кнопка сохранения данных -->
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">
+                Сохранить
+            </button>
+        </div>
+        </form>
 @endsection
