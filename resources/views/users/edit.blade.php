@@ -13,7 +13,7 @@
                             <a href="{{ route('users.index') }}" class="btn btn-secondary">Назад</a>
                         </div>
                     </div>
-
+                    @include('components.form_errors')
                     <div class="card-body">
                         <form action="{{ route('users.update', $user->id) }}" method="POST" enctype="multipart/form-data">
                             @csrf

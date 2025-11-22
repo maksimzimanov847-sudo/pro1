@@ -20,7 +20,7 @@ enum UserRoleEnum: int
     {
         return collect(self::cases())
             ->mapWithKeys(function ($value) {
-                return [$value->value => $value->lebel()];
+                return [$value->value => $value->label()];
             })
             ->toArray();
     }

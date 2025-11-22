@@ -10,3 +10,4 @@
         </form>
     </div>
 @endsection
+@include('components.form_errors')

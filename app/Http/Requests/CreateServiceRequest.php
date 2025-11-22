@@ -19,7 +19,9 @@ class CreateServiceRequest extends FormRequest
             ],
             'description' => [
                 'required',
-                'string'
+                'string',
+                'max:255',
+
             ],
             'price' => [
                 'required',
