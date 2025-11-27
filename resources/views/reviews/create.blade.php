@@ -1,6 +1,6 @@
-@extends('layouts.app')
-
-@section('content')
+@php
+    $review = $review ?? null;
+@endphp
     <div class="container">
         <div class="header">
             <h1>Создание нового отзыва</h1>
@@ -12,5 +12,5 @@
             @include('reviews.form')
         </form>
     </div>
-@endsection
+
 

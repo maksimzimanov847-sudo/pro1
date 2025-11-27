@@ -1,6 +1,4 @@
-@extends('layouts.app')
-@section('title', 'Список услуг')
-@section('content')
+<h1>Показ услуги</h1>
     <div class="container">
         <div class="header">
             <a href="{{ route('services.index') }}" class="btn btn-primary">Назад</a>
@@ -30,4 +28,4 @@
         </table>
     </div>
 
-@endsection
+

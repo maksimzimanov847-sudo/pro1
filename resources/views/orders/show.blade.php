@@ -1,9 +1,8 @@
-@extends('layouts.app')
+@php
+    $order = $order ?? null;
+@endphp
 
-@section('title', 'Показ заказов')
-
-@section('content')
-    <div class="show-container">
+<div class="show-container">
     <div class="header">
         <h1>Пользователь #{{ $order->id }}</h1>
 
@@ -34,4 +33,4 @@
     </table>
 
 </div>
-@endsection
+

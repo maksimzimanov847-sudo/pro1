@@ -1,6 +1,6 @@
-@extends('layouts.app')
-
-@section('content')
+@php
+    $review = $review ?? null;
+@endphp
     <div class="show-container">
         <div class="show-header">
             <h1>Отзыв #{{ $review->id }}</h1>
@@ -32,4 +32,4 @@
             </table>
         </div>
     </div>
-@endsection
+

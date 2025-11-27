@@ -1,7 +1,4 @@
-@extends('layouts.app')
-@section('title','Форма пользователя')
 
-@section('content')
     @php
 
         $user = $user ?? null;
@@ -80,4 +77,3 @@
             </button>
         </div>
     </form>
-@endsection

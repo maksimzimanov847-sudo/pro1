@@ -1,5 +1,6 @@
 <?php
 
+
 namespace App\Http\Controllers;
 
 use App\Enums\OrderStatusEnum;
@@ -8,17 +9,14 @@ use App\Http\Requests\UpdateOrderRequest;
 use App\Models\Order;
 use App\Models\Service;
 use App\Models\User;
-use Illuminate\Http\Request;
-use Symfony\Component\HttpFoundation\RedirectResponse;
+use Illuminate\Http\RedirectResponse;
 
 class OrderController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         $orders = Order::with(['user', 'service'])->get();
+
         return view('orders.index', compact('orders'));
     }
 
@@ -29,6 +27,7 @@ class OrderController extends Controller
         $users = User::all();
         $services = Service::all();
         $statuses = OrderStatusEnum::options();
+
         return view('orders.create', compact('users', 'services', 'statuses'));
     }
 
@@ -36,14 +35,15 @@ class OrderController extends Controller
     public function store(CreateOrderRequest $request): RedirectResponse
     {
         Order::create($request->validated());
-        return redirect()->route('orders.index');
 
+        return redirect()->route('orders.index');
     }
 
 
     public function show(Order $order)
     {
-        $order=$order->load(['user', 'service']);
+        $order->load(['user', 'service']);
+
         return view('orders.show', compact('order'));
     }
 
@@ -54,6 +54,7 @@ class OrderController extends Controller
         $users = User::all();
         $services = Service::all();
         $statuses = OrderStatusEnum::options();
+
         return view('orders.edit', compact('order', 'users', 'services', 'statuses'));
     }
 
@@ -61,17 +62,16 @@ class OrderController extends Controller
     public function update(UpdateOrderRequest $request, Order $order): RedirectResponse
     {
         $order->update($request->validated());
+
         return redirect()->route('orders.index');
-
-
     }
 
 
 
-    public function destroy(Order $order)
+    public function destroy(Order $order): RedirectResponse
     {
         $order->delete();
-        return redirect()->route('orders.index');
 
+        return redirect()->route('orders.index');
     }
 }

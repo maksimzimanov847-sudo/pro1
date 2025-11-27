@@ -1,8 +1,8 @@
-@extends('layouts.app')
-@section('title','Показ пользователя')
 
-@section('content')
+@php
 
+    $user = $user ?? null;
+@endphp
     <div class="container">
         <div class="header">
             <a href="http://localhost/users" class="btn btn-primary">Назад</a>
@@ -35,4 +35,3 @@
         </table>
     </div>
 
-@endsection

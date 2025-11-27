@@ -1,6 +1,6 @@
-@extends('layouts.app')
-@section('title', 'Редактирование отзыва')
-@section('content')
+@php
+    $review = $review ?? null;
+@endphp
     <div>
         <a href="{{ route('reviews.index') }}">назад</a>
         <form action="{{ route('reviews.update', $review) }}" method="POST">
@@ -9,4 +9,4 @@
             @include('reviews.form')
         </form>
     </div>
-@endsection
+

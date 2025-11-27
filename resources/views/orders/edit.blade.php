@@ -1,9 +1,7 @@
 
-@extends('layouts.app')
-
-@section('title', 'редактирование заказа')
-
-@section('content')
+@php
+    $order = $order ?? null;
+@endphp
 
 
     <div class="container">
@@ -18,4 +16,3 @@
 
     </form>
 </div>
-@endsection

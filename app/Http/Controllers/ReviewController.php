@@ -15,6 +15,7 @@ class ReviewController extends Controller
     public function index()
     {
         $reviews = Review::with(['user', 'service'])->get();
+
         return view('reviews.index', compact('reviews'));
     }
 
@@ -37,6 +38,7 @@ class ReviewController extends Controller
     public function store(CreateReviewRequest $request): RedirectResponse
     {
         Review::create($request->validated());
+
         return redirect()->route('reviews.index');
     }
 
@@ -46,6 +48,7 @@ class ReviewController extends Controller
     public function show(Review $review)
     {
         $review->load(['user', 'service']);
+
         return view('reviews.show', compact('review'));
     }
 
@@ -68,6 +71,7 @@ class ReviewController extends Controller
     public function update(UpdateReviewRequest $request,Review $review): RedirectResponse
     {
         $review->update($request->validated());
+
         return redirect()->route('reviews.index');
     }
 
@@ -77,6 +81,7 @@ class ReviewController extends Controller
     public function destroy(Review $review)
     {
         $review->delete();
+
         return redirect()->route('reviews.index');
     }
 }

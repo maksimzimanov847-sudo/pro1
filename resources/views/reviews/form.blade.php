@@ -1,12 +1,9 @@
-@extends('layouts.app')
-@section('title', 'Редактирование отзыва')
 
-@section('content')
     @php
         $review = $review ?? null;
     @endphp
 
-    <h2>Редактирование отзыва</h2>
+    <h1>Редактирование отзыва</h1>
     <div class="form-group">
         <label for="user_id">Выберите пользователя:</label>
         <select
@@ -96,15 +93,16 @@
                 @endforeach
             </ul>
         </div>
+         <div>
     @endif
 
 
-    <div>
-        <!-- Кнопка сохранения данных -->
-        <div class="form-group">
-            <button type="submit" class="btn btn-primary">
-                Сохранить
-            </button>
-        </div>
-        </form>
-@endsection
+
+             <!-- Кнопка сохранения данных -->
+             <div class="form-group">
+                 <button type="submit" class="btn btn-primary">
+                     Сохранить
+                 </button>
+             </div>
+             </form>
+
