@@ -3,16 +3,6 @@
     $service = $service ?? null;
 @endphp
 
-<div class="form-group">
-    <label>Выберите роль:</label>
-    <select name="role" id="role" class="form-control" required>
-        @foreach($roles as $key => $value)
-            <option value="{{ $key }}" {{ old('role') == $key || ($service && $service->role == $key) ? 'selected' : '' }}>
-                {{ $value }}
-            </option>
-        @endforeach
-    </select>
-</div>
 
 <div class="form-group">
     <label for="name">Название услуги</label>

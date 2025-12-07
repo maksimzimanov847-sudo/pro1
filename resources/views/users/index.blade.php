@@ -3,26 +3,27 @@
 
 @section('content')
     <div class="container">
-        <div class="header">
-            <a href="{{route("users.create")}}" class="btn btn-primary">Добавить</a>
+        <div class="header mb-3">
+            <h2 class="text-primary fw-bold mb-3">Список пользователей</h2>
+            <a href="{{route("users.create")}}" class="text-white hover:text-blue-300 px-3 py-2 rounded">Добавить</a>
         </div>
     </div>
 
-    <div class="table-container">
-        <table class="table">
-            <thead>
+    <div class="table-container bg-white shadow p-4 rounded">
+        <table class="table table-striped">
+            <thead class="bg-primary text-white">
             <tr>
-                <th>номер</th>
-                <th>Имя</th>
-                <th>Фамилия</th>
-                <th>отчество</th>
-                <th>Роль </th>
-                <th>Действия</th>
+                <th class="text-white">номер</th>
+                <th class="text-white">Имя</th>
+                <th class="text-white">Фамилия</th>
+                <th class="text-white">отчество</th>
+                <th class="text-white">Роль </th>
+                <th class="text-white">Действия</th>
             </tr>
             </thead>
             <tbody>
             @forelse ($users as $user)
-                <tr>
+                <tr class="hover-bg-light">
                     <td>{{ $user->id }}</td>
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->surname }}</td>
@@ -47,7 +48,7 @@
                 </tr>
             @empty
                 <tr>
-                    <td colspan="6">Нет пользователей в системе</td>
+                    <td colspan="6" class="text-center text-secondary">Нет пользователей в системе</td>
                 </tr>
             @endforelse
             </tbody>
