@@ -1,15 +1,15 @@
 <nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
     <!-- Primary Navigation Menu -->
-    <header class="bg-blue-500 shadow-md sticky top-8 z-50">
+    <header class="bg-blue-500 shadow-md sticky top-8 z-50 text-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <div class="flex items-center">
-                    <a href="#" class="flex items-center text-white text-2xl font-bold">
+                    <a href="#" class="flex items-center  text-2xl font-bold">
                         <span class="mr-2">Зиманушка</span>
                     </a>
                 </div>
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex text-white hover:text-blue-300 px-3 py-2 rounded">
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex  hover:text-blue-300 px-3 py-2 rounded">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Главная страница') }}
                     </x-nav-link>
