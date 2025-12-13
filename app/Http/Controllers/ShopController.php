@@ -1,21 +1,23 @@
 <?php
 
+
 namespace App\Http\Controllers;
 
 use App\Models\Service;
-use Couchbase\View;
-use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class ShopController extends Controller
 {
-
+    /**
+     * GET / [shop.index]
+     */
     public function index(): View
     {
-        // Получаем все сервисы из базы данных
-        $services = Service::all();
+        $services = Service::withCount('reviews')
+            ->with('reviews')
+            ->orderBy('created_at', 'desc')
+            ->paginate(12);
 
-        // Передаем данные в представление
         return view('shop.index', compact('services'));
     }
 }
-

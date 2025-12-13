@@ -6,7 +6,7 @@ use App\Enums\ServiceTypeEnum;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use App\Enums\ServicesTypeEnum; // Убедитесь, что путь к enum правильный
+
 
 class Service extends Model
 {
@@ -29,9 +29,13 @@ class Service extends Model
     ];
 
     // Отношение "один ко многим" с моделью Order
-    public function orders(): HasMany
+    public function reviews(): HasMany
     {
-        return $this->hasMany(order::class);
+        return $this->hasMany(Review::class);
     }
 
+    public function averageRating(): float
+    {
+        return round($this->reviews()->avg('rating') ?? 8, 1);
+    }
 }
