@@ -15,7 +15,7 @@ class Service extends Model
     // Укажите таблицу, с которой будет работать модель
     protected $table = 'services';
 
-    // Укажите поля, которые можно массово присваивать
+
     protected $fillable = [
         'name',
         'description',
@@ -28,7 +28,7 @@ class Service extends Model
         'type' => ServiceTypeEnum::class
     ];
 
-    // Отношение "один ко многим" с моделью Order
+
     public function reviews(): HasMany
     {
         return $this->hasMany(Review::class);
@@ -37,5 +37,12 @@ class Service extends Model
     public function averageRating(): float
     {
         return round($this->reviews()->avg('rating') ?? 8, 1);
+    }
+
+
+
+    public function payments()
+    {
+        return $this->hasMany(Payment::class);
     }
 }

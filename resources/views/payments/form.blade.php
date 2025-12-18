@@ -7,7 +7,7 @@
         <label for="order_id">Выберите заказ: </label>
         <select name="order_id" id="order_id" required>
             @foreach($orders as $key => $value)
-                <option value="{{ $key }}" @selected(old('order_id', $payment?->order_id) == $key)> {{ $value->service->title }}</option>
+                <option value="{{ $key }}" @selected(old('order_id', $payment?->order_id) == $key)> {{ $value->service->id }}</option>
             @endforeach
         </select>
 

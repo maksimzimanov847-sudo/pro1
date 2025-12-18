@@ -30,6 +30,9 @@
                         {{ __('Заказы') }}
                     </x-nav-link>
 
+                    <x-nav-link :href="route('payments.index')" :active="request()->routeIs('Payments')">
+                        {{ __('Заказы') }}
+                    </x-nav-link>
                 </div>
             </div>
 

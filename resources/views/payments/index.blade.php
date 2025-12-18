@@ -30,8 +30,8 @@
                                 Нет данных
                             @endif
                         </td>
-                        <td>{{ $payment->status }}</td>
-                        <td>{{ $payment->method }}</td>
+                        <td>{{ $payment->status->label() }}</td>
+                        <td>{{ $payment->method->label() }}</td>
                         <td class="actions">
                             <div class="btn-group" role="group">
                                 <a href="{{ route('payments.show', $payment) }}" class="btn btn-info">Показать</a>
